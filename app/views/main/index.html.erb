@@ -1,0 +1,57 @@
+<div class="container">
+  <div id="main">
+
+  <header>
+  <nav class="navbar navbar-expand-md fixed-top">
+    <img id="logo" src="/assets/сердце3.svg">
+    <a class="navbar-brand text-dark site_name" href="#">VBomonke</a>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+    </div >
+    <div id="but">
+      <% if @_current %>
+        <a href="../signout"><button type="button" class="btn btn-outline-secondary">Выход</button></a>
+        <a href= "../main/my_profile"> <button type="button" class="btn btn-outline-secondary">Мой профиль: <%= @_current.last_name %></button></a>
+        <%else %>
+        <a href="../signin"><button type="button" class="btn btn-outline-secondary"  >Вход</button></a>
+        <a href="../signup"> <button type="button" class="btn btn-outline-secondary">Регистрация</button></a>
+
+      <% end %>
+    </div>
+  </nav>
+</header>
+<!-- -------------------------------------------ХЭДР---------------------------- -->
+<!-- Begin page content -->
+
+    <div class="row row_quest">
+      <span id="new">New users</span>
+    </div>
+<% @persons.each do |person| %>
+    <!-- -------------------------------------------ДИВ ! ЧЕЛОВЕКА----------------------------- -->
+  <% if @_current.id != person.id %>
+    <div class="col-9 ">
+      <div class="row question-box">
+        <div class="col-3 a">
+          <img src=<%= @photo %> class="question-img" alt="avatar" alt="Аватар">
+        </div>
+        <div class="col-9 a">
+          <div class="question-title a"><a class="text-dark" href=""><%= person.first_name %> <%= person.last_name %> </a></div>
+          <span class="question-text a" ></span>
+          <br/><br/>
+          <span class="question-text a"></span>
+          <div class="row">
+            <div class="col-5 a">
+
+            </div>
+            <div class="col-7 a">
+              <button id = "btn_love" class="btn" onclick="change_color(this);">Нравится</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <% end %>
+  <%end %>
+    <!-- ----------------------------------------------------------------------- -->
+  </div>
+</div>

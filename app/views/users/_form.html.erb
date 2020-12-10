@@ -1,0 +1,30 @@
+<% if user.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+  <ul>
+    <% user.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<%= form_with(model: user, local: true, :class => 'form-signin' ) do |form| %>
+
+<h1 class="vb"> <img id="logo" src="/assets/сердце3.svg" />VBomonke</h1><br/>
+
+<%= form.email_field :email, :class => 'form-control inp',:placeholder => 'email '%>
+
+<%= form.password_field :password, :class => 'form-control inp psr',:placeholder => 'password'%>
+
+<%= form.password_field :password_confirmation, :class => 'form-control inp psr',:placeholder => 'confirm password'%>
+
+<%= form.text_field :first_name, :class => 'form-control inp em',:placeholder => 'surname' %>
+
+<%= form.text_field :last_name, :class => 'form-control inp' ,:placeholder => 'name ' %>
+
+<div class="actions">
+  <%= form.submit 'Sign up', :class => 'btn btn-outline-secondary'   %>
+</div>
+<span class="link_to_sign">Already has account?</span>
+<%= link_to 'Sign in',  users_path %>
+<% end %>
