@@ -14,7 +14,7 @@ class SessionController < ApplicationController
                              params[:session][:password])
     if user.nil?
 
-      redirect_to signin_url, alert: 'Invalid email/password combination.'
+      redirect_to signin_url, alert: 'Неверный логин или пароль'
 
     else
       sign_in user

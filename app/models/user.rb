@@ -13,9 +13,8 @@ class User < ApplicationRecord
   validates :city,  length: { maximum: 30 }
   validates :town,  length: { maximum: 30 }
   validates :love_status, length: { maximum: 30 }
-  validates_format_of :contact, with: %r{(https://vk.com/)?}
-  validates_format_of :group, with: /(\A((ИУ)|(СМ)|(МТ)|(РК)|(СГН)|(БМТ)|(ИБМ)|(АК)|
-(ИСОТ)|(ОЭ)|(РКТ)|(РТ)|(Э)|(ЮР)|(ФН)|(РЛ))((1[0-2])|[1-9])-((1[0-2])|[1-9])[1-9](А|Б|М)?\Z)?/
+  validates_format_of :contact, with: /https:\/\/vk.com\//
+  validates_format_of :group, with: /\A((ИУ)|(СМ)|(МТ)|(РК)|(СГН)|(БМТ)|(ИБМ)|(АК)|(ИСОТ)|(ОЭ)|(РКТ)|(РТ)|(Э)|(ЮР)|(ФН)|(РЛ))((1[0-2])|[1-9])-((1[0-2])|[1-9])[1-9](А|Б|М)?\Z/
   mount_uploader :avatar, AvatarUploader
 
   def self.authenticate(email, submitted_password)

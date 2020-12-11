@@ -11,18 +11,18 @@
   <% end %>
   <%=  form_with(model:@_current,  local: true, url: main_create_path, :class => 'form_ed') do |form|%>
   <h1 class="vb"> <img id="logo" src="/assets/сердце3.svg" />VBomonke</h1><br/>
-  <%= form.text_field :first_name, :class => 'form-control inp em',:placeholder => 'surname' %>
-  <%= form.text_field :last_name, :class => 'form-control inp' ,:placeholder => 'name ' %>
-  <%= form.text_field :group, :class => 'form-control inp' ,:placeholder => 'AA1-11Б ' %>
+  <%= form.text_field :first_name, :class => 'form-control inp em',:placeholder => 'Фамилия' %>
+  <%= form.text_field :last_name, :class => 'form-control inp' ,:placeholder => 'Имя' %>
+  <%= form.text_field :group, :class => 'form-control inp' ,:placeholder => 'Группа (формат: ИУ6-32Б) ' %>
   <%= form.date_field :born, :class => 'form-control inp' %>
-  <%= form.text_field :status, :class => 'form-control inp' ,:placeholder => 'status ' %>
-  <%= form.email_field :email, :class => 'form-control inp',:placeholder => 'email '%>
-  <%= form.text_field :love_status, :class => 'form-control inp' ,:placeholder => 'you love status ' %>
-  <%= form.text_field :city, :class => 'form-control inp' ,:placeholder => 'city ' %>
-  <%= form.text_field :town, :class => 'form-control inp' ,:placeholder => 'town ' %>
-  <%= form.text_field :contact, :class => 'form-control inp' ,:placeholder => 'contact ' %>
-  <%= form.text_area :info, :class => 'form-control inp' ,:placeholder => 'about you... ' %>
-  <%= form.password_field :password, :class => 'form-control inp psr',:placeholder => 'password'%>
+  <%= form.text_field :status, :class => 'form-control inp' ,:placeholder => 'Статус' %>
+  <%= form.email_field :email, :class => 'form-control inp',:placeholder => 'Почта'%>
+  <%= form.text_field :love_status, :class => 'form-control inp' ,:placeholder => 'Личный статус:' %>
+  <%= form.text_field :city, :class => 'form-control inp' ,:placeholder => 'Страна' %>
+  <%= form.text_field :town, :class => 'form-control inp' ,:placeholder => 'Город' %>
+  <%= form.text_field :contact, :class => 'form-control inp' ,:placeholder => 'Ссылка на вк' %>
+  <%= form.text_area :info, :class => 'form-control inp' ,:placeholder => 'Расскажите немного о себе...' %>
+  <%= form.password_field :password, :class => 'form-control inp psr',:placeholder => 'Пароль'%>
   <% if @_current.avatar.file.nil?%>
   <% else %>
   <%= image_tag @_current.avatar.url, :class => "question-img avatarka", :alt => "Аватар"%>

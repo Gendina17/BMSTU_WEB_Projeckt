@@ -3,12 +3,12 @@
   <h1 class="vb"> <img id="logo" src="/assets/сердце3.svg" />VBomonke</h1><br/>
   <%= @title%>
   <p id="alert"><%= alert %></p>
-  <%= f.email_field :email, :class => 'form-control inp',:placeholder => 'email '%>
-  <%= f.password_field :password, :class => 'form-control inp psr',:placeholder => 'password'%>
+  <%= f.email_field :email, :class => 'form-control inp',:placeholder => 'Почта'%>
+  <%= f.password_field :password, :class => 'form-control inp psr',:placeholder => 'Пароль'%>
   <div class="actions">
-    <%= f.submit 'Sign in', :class => 'btn btn-outline-secondary'%>
+    <%= f.submit 'Войти', :class => 'btn btn-outline-secondary'%>
   </div>
-  <span class="link_to_sign">New user?</span>
-  <%= link_to "Sign up now!", signup_path %>
+  <span class="link_to_s"><%=t 'New_user?'%></span>
+  <%= link_to "Зарегестрируйся!", signup_path %>
   <% end %>
 </div>

@@ -17,7 +17,7 @@
         </div>
       </nav>
     </header>
-    <span id="new">New users</span>
+    <span id="new"><%=t 'New_users'%></span>
     <% @persons.each do |person| %>
     <% if !@_current || @_current.id != person.id %>
     <div class="col-9 ">
