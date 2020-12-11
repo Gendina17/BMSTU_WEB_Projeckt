@@ -1,11 +1,4 @@
 ru:
-  activerecord:
-    errors:
-      messages:
-        record_invalid: 'Возникли ошибки: %{errors}'
-        restrict_dependent_destroy:
-          has_one: 'Невозможно удалить запись, так как существует зависимость: %{record}'
-          has_many: 'Невозможно удалить запись, так как существуют зависимости: %{record}'
   date:
     abbr_day_names:
       - Вс
@@ -129,8 +122,39 @@ ru:
       day: День
       month: Месяц
       year: Год
-  errors:
-    format: "%{attribute} %{message}"
+  activerecord:
+    attributes:
+      # set the name used in nested attribute error messages
+      user:
+        Password: "Пароль"
+        password: "Пароль"
+        Group: "Группа"
+        group: "Группа"
+        Email: "Почта"
+        email: "Почта"
+        First_name: "Поле фамилия"
+        first_name: "Поле фамилия"
+        Last_name: "Поле имени"
+        last_name: "Поле имени"
+        Status: "Статус"
+        status: "Статус"
+        City: "Страна"
+        сity: "Страна"
+        Town: "Город"
+        town: "Город"
+        Love_status: "Личный статус"
+        love_status: "Личный статус"
+        Info: "По информации о себе"
+        info: "По информации о себе"
+        Password_confirmation: "Повтор пароля"
+        password_confirmation: "Повтор пароля"
+    errors:
+      models:
+        # change the error message for eye color not included in the list
+        user:
+          attributes:
+            Password: "Пароль"
+            password: "Пароль"
     messages:
       accepted: нужно подтвердить
       blank: не может быть пустым

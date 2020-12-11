@@ -1,7 +1,7 @@
 <div  class ="sign_form">
   <% if @_current.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@_current.errors.count, "error") %> prohibited this user from being saved:</h2>
+    <h2> <%=t 'from_being_saved'%> </h2>
     <ul>
       <% @_current.errors.full_messages.each do |message| %>
       <li><%= message %></li>
