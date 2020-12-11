@@ -1,12 +1,7 @@
-body {
-  background-color: #fff;
-  color: #333;
-  margin: 33px; }
-
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
-  line-height: 18px; }
+}
 
 pre {
   background-color: #eee;
@@ -18,10 +13,6 @@ a {
 
 a:visited {
   color: #666; }
-
-a:hover {
-  color: #fff;
-  background-color: #000; }
 
 th {
   padding-bottom: 5px; }
@@ -46,7 +37,9 @@ div.actions {
   border: 2px solid red;
   padding: 7px 7px 0;
   margin-bottom: 20px;
-  background-color: #f0f0f0; }
+  background-color: white;
+  margin-right: 350px;
+}
 
 #error_explanation h2 {
   text-align: left;
@@ -63,3 +56,4 @@ div.actions {
 
 label {
   display: block; }
+

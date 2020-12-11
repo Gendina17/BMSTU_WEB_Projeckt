@@ -1,8 +1,13 @@
-
-<div class="container">
+<header class="hea">
+  <nav class="navbar navbar-expand-md fixed-top">
+    <img id="logo" src="/assets/сердце3.svg">
+    <a class="navbar-brand text-dark site_name" href="../../">VBomonke</a>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+    </div >
+  </nav>
+</header>
+<div class="container prof">
   <div id="main">
-
-
     <div class="row" id="real-estates-detail">
       <div class="col-lg-4 col-md-4 col-xs-12">
         <div class="panel panel-default">
@@ -14,11 +19,14 @@
           </div>
           <div class="panel-body">
             <div class="text-center" id="author">
-              <img src="/assets/сердце3.svg">
-              <h3>Роман баканов</h3>
-
-              <p>Люблю ВОВ и прогать</p>
-
+              <% if  @man.avatar.file.nil?%>
+              <img src="/assets/def_avatar.jpg">
+              <% else %>
+              <%= image_tag @man.avatar.url%>
+              <% end %>
+              <% if !@man.status.nil? && !@man.status.empty? %>
+              <h5><%= @man.status %></h5>
+              <% end %>
             </div>
           </div>
         </div>
@@ -26,34 +34,54 @@
       <div class="col-lg-8 col-md-8 col-xs-12">
         <div class="panel">
           <div class="panel-body">
-
-            <h1  data-toggle="tab">О пользователе</h1>
-
-
+            <h1  data-toggle="tab"><%= @man.first_name %>  <%= @man.last_name %></h1>
             <div id="myTabContent" class="tab-content">
               <hr>
-
-
-                <table class="table table-th-block">
-                  <tbody>
-
-                  <tr><td class="active">Группа</td><td>ИУ6-32Б</td></tr>
-                  <tr><td class="active">Страна:</td><td>Россия</td></tr>
-                  <tr><td class="active">Родной город:</td><td>Пушкино</td></tr>
-                  <tr><td class="active">Дата рождения:</td><td>27.05.2001</td></tr>
-                  <tr><td class="active">Семейное положение:</td><td>люблю прогать</td></tr>
-                  <tr><td class="active">Контакты:</td><td>тут мб можн как т сделать ссылки на вк и инсту </td></tr>
-                  <tr><td class="active">О себе:</td><td>тут типа много текста может быть чел рассказыват, все что душе угодно вооооооооооооот так вооот!</td></tr>
-                  </tbody>
-                </table>
-
-
+              <table class="table table-th-block">
+                <tbody>
+                  <% key=0 %>
+                  <% if !@man.group.nil? && !@man.group.empty? %>
+                  <tr><td class="active">Группа</td><td><%= @man.group %> </td></tr>
+                  <%key+=1 %>
+                  <% end %>
+                  <% if !@man.city.nil? && !@man.city.empty? %>
+                  <tr><td class="active">Страна:</td><td><%= @man.city %> </td></tr>
+                  <%key+=1 %>
+                  <% end %>
+                  <% if !@man.town.nil? && !@man.town.empty? %>
+                  <tr><td class="active">Родной город:</td><td><%= @man.town %> </td></tr>
+                  <%key+=1 %>
+                  <% end %>
+                  <% if !@man.born.to_s.nil? && !@man.born.to_s.empty? %>
+                  <tr><td class="active">Дата рождения:</td><td><%= @man.born %></td></tr>
+                  <%key+=1 %>
+                  <% end %>
+                  <% if !@man.love_status.nil? && !@man.love_status.empty? %>
+                  <tr><td class="active">Семейное положение:</td><td><%= @man.love_status %></td></tr>
+                  <%key+=1 %>
+                  <% end %>
+                  <% if !@man.contact.nil? && !@man.contact.empty? %>
+                  <tr><td class="active">Контакты:</td><td><a href="<%= @man.contact %>" target="_blank">ссылка</a> </td></tr>
+                  <%key+=1 %>
+                  <% end %>
+                  <% if !@man.info.nil? && !@man.info.empty? %>
+                  <%key+=1 %>
+                  <tr><td class="active">О себе:</td><td><%= @man.info %> </td></tr>
+                  <% end %>
+                </tbody>
+              </table>
+              <% if key<4 %>
+              <br><br>
+              <h6 class="zam">К сожалению, пользотель заполнил не много информации о себе</h6>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-</div><!-- /.main -->
-</div><!-- /.container -->
+  <div class="">
+    <button id = "btn_love" class=" nrav_btn" onclick="change_color(this);">Нравится</button>
+  </div>
+</div>
+</div>

@@ -1,8 +1,16 @@
-
-<div class="container">
+<header class="hea">
+  <nav class="navbar navbar-expand-md fixed-top">
+    <img id="logo" src="/assets/сердце3.svg">
+    <a class="navbar-brand text-dark site_name" href="../../">VBomonke</a>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+    </div >
+    <div id="but">
+      <a href="../signout"><button type="button" class="btn btn-outline-secondary">Выход</button></a>
+    </div>
+  </nav>
+</header>
+<div class="container prof">
   <div id="main">
-
-
     <div class="row" id="real-estates-detail">
       <div class="col-lg-4 col-md-4 col-xs-12">
         <div class="panel panel-default">
@@ -14,11 +22,14 @@
           </div>
           <div class="panel-body">
             <div class="text-center" id="author">
-              <img src="/assets/сердце3.svg">
-              <h3>Роман баканов</h3>
-
-              <p>Люблю ВОВ и прогать</p>
-
+              <% if  @_current.avatar.file.nil?%>
+              <img src="/assets/def_avatar.jpg">
+              <% else %>
+              <%= image_tag @_current.avatar.url%>
+              <% end %>
+              <% if !@_current.status.nil? && !@_current.status.empty? %>
+              <h5><%= @_current.status %></h5>
+              <% end %>
             </div>
           </div>
         </div>
@@ -26,34 +37,55 @@
       <div class="col-lg-8 col-md-8 col-xs-12">
         <div class="panel">
           <div class="panel-body">
-
-            <h1  data-toggle="tab">О пользователе</h1>
-
-
+            <h1  data-toggle="tab">Hello, <%= @_current.first_name %>   <%= @_current.last_name %> </h1>
             <div id="myTabContent" class="tab-content">
               <hr>
-
-
               <table class="table table-th-block">
                 <tbody>
-
-                <tr><td class="active">Группа</td><td>ИУ6-32Б</td></tr>
-                <tr><td class="active">Страна:</td><td>Россия</td></tr>
-                <tr><td class="active">Родной город:</td><td>Пушкино</td></tr>
-                <tr><td class="active">Дата рождения:</td><td>27.05.2001</td></tr>
-                <tr><td class="active">Семейное положение:</td><td>люблю прогать</td></tr>
-                <tr><td class="active">Контакты:</td><td>тут мб можн как т сделать ссылки на вк и инсту </td></tr>
-                <tr><td class="active">О себе:</td><td>тут типа много текста может быть чел рассказыват, все что душе угодно вооооооооооооот так вооот!</td></tr>
+                  <% key=0 %>
+                  <% if !@_current.group.nil? && !@_current.group.empty? %>
+                  <tr><td class="active">Группа</td><td><%= @_current.group %> </td></tr>
+                  <%key+=1 %>
+                  <% end %>
+                  <% if  !@_current.city.nil? && !@_current.city.empty? %>
+                  <tr><td class="active">Страна:</td><td><%= @_current.city %> </td></tr>
+                  <%key+=1 %>
+                  <% end %>
+                  <% if  !@_current.town.nil? && !@_current.town.empty? %>
+                  <tr><td class="active">Родной город:</td><td><%= @_current.town %> </td></tr>
+                  <%key+=1 %>
+                  <% end %>
+                  <% if  !@_current.born.to_s.nil? && !@_current.born.to_s.empty? %>
+                  <tr><td class="active">Дата рождения:</td><td><%= @_current.born %></td></tr>
+                  <%key+=1 %>
+                  <% end %>
+                  <% if !@_current.love_status.nil? && !@_current.love_status.empty? %>
+                  <tr><td class="active">Cтатус:</td><td><%= @_current.love_status %></td></tr>
+                  <%key+=1 %>
+                  <% end %>
+                  <% if  !@_current.contact.nil? && !@_current.contact.empty? %>
+                  <tr><td class="active">Контакты:</td><td><a href="<%= @_current.contact %>" target="_blank">ссылка</a> </td></tr>
+                  <%key+=1 %>
+                  <% end %>
+                  <% if  !@_current.info.nil? && !@_current.info.empty? %>
+                  <tr><td class="active">О себе:</td><td><%= @_current.info %> </td></tr>
+                  <%key+=1 %>
+                  <% end %>
                 </tbody>
               </table>
-
-
+              <% if key<7 %>
+              <br><br>
+              <h6 class="zam">Чем подробнее вы заполните профиль, тем быстрее найдете друзей</h6>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-</div><!-- /.main -->
-</div><!-- /.container -->
+  <div class="prof_but">
+    <a href="../main/edit"> <button class="btn btn-outline-secondary" >Редактировать профиль</button></a>
+    <a href="../love"><button class="btn btn-outline-secondary" >Понравившиеся пользователи</button></a>
+  </div>
+  </div>
+  </div>

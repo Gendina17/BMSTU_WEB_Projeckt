@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# for authorization
 module SessionHelper
   def sign_in(user)
     session[:current_user_id] = user.id

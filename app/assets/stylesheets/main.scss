@@ -1,23 +1,42 @@
 // Place all the styles related to the Main controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-main > .container {
-  padding: 40px 15px 0;
-  width: 4000px;
-}
-* {
+
+body {
   background: #DCDCDC;
 }
 nav {
   height: 100px;
   background: white;
+  margin-bottom: 200px;
 }
 #new {
   font-size: 40px;
   margin-bottom: 20px;
-
+  margin-top: 100px;
 }
-
+.nrav {
+  margin-left: 100px;
+}
+.nrav_btn {
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+  border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  background: #DCDCDC;
+  width: 200px;
+}
 #logo {
   max-height: 65px;
   max-width: 40px;
@@ -28,13 +47,7 @@ nav {
 #site_name {
   font-size: 2em;
 }
-.btn {
-  background: #DCDCDC;
-  margin-left: 10px;
-  margin-right: 10px;
-  color: black;
-  width: 100px;
-}
+
 #but {
   margin-right: 60px;
   background-color: white;
@@ -63,16 +76,13 @@ nav {
 .question-title {
   font-size: 30px;
   font-weight: bold;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   background-color: white;
 }
 .question-text {
   margin-bottom: 40px;
   font-size: 1.5em;
-  padding-top: 20px;
-}
-.a {
-  background-color:  white;
+  padding-top: 10px;
 }
 .love {
   background-color: #ffc0cb;
@@ -80,7 +90,6 @@ nav {
 }
 a:hover {
   background-color: white;
-
 }
 .question-title:hover {
   background-color: white;
@@ -88,29 +97,23 @@ a:hover {
 .text-dark {
   background-color: white;
 }
-
-
-
-
-
-body{background:url(https://bootstraptema.ru/images/bg/bg-1.png)}
-
-#main {
-  background-color: #f2f2f2;
-  padding: 20px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
-  border-bottom: 4px solid #ddd;
+.row_q {
+  margin-top: 200px;
 }
+.hea {
+  margin-bottom: 100px;
+}
+
+
+
+
+
+
+
+
+
 #real-estates-detail #author img {
-  -webkit-border-radius: 100%;
-  -moz-border-radius: 100%;
-  -ms-border-radius: 100%;
-  -o-border-radius: 100%;
-  border-radius: 100%;
+  border-radius: 10px;
   border: 5px solid #ecf0f1;
   margin-bottom: 10px;
 }
@@ -132,3 +135,43 @@ img {
   max-width: 300px;
   max-height: 300px;
 }
+ .prof{
+   background-color: white;
+   margin-top: 160px;
+   border: 1px solid grey;
+   border-radius: 25px;
+   padding: 20px;
+ }
+ .zam {
+  color: #2E2F30;
+   margin-left: 60px;
+ }
+ .prof_but {
+   padding-left: 200px;
+ }
+.form_ed {
+  margin: 0 auto;
+  background-color: white;
+  border: 2px solid grey;
+  border-radius: 15px;
+  height: 1050px;
+  width: 500px;
+}
+.avatarka {
+  margin-left: 170px;
+  margin-top: 10px;
+}
+.link_to {
+  margin-left: 185px;
+}
+
+
+
+
+
+
+
+
+
+
+

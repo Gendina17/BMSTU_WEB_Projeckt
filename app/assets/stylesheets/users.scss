@@ -1,93 +1,87 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.sign_form {
+  padding-top: 100px;
+}
 main > .container {
-padding: 60px 15px 0;
-width: 4000px;
-}
-html,
-body {
-height: 100%;
+  padding: 60px 15px 0;
+  width: 4000px;
 }
 body {
-display: -ms-flexbox;
-display: -webkit-box;
-display: flex;
--ms-flex-align: center;
--ms-flex-pack: center;
--webkit-box-align: center;
-align-items: center;
--webkit-box-pack: center;
-justify-content: center;
-padding-top: 40px;
-padding-bottom: 40px;
-background: #DCDCDC;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-align: center;
+  -ms-flex-pack: center;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background: #DCDCDC;
 }
 .form-signin {
-
-max-width: 700px;
-
-margin: 0 auto;
-background-color: white;
-border: 2px solid grey;
-border-radius: 15px;
-height: 500px;
-width: 500px;
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: white;
+  border: 2px solid grey;
+  border-radius: 15px;
+  height: 500px;
+  width: 500px;
 }
 .form-signin .form-control {
-
-box-sizing: border-box;
-height: auto;
-padding: 10px;
-font-size: 16px;
-
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
 }
 .form-control {
-margin-right:40px;
+  margin-right:40px;
 }
 .form-signin .form-control:focus {
-z-index: 2;
+  z-index: 2;
 }
-
-
 .inp {
-max-width: 300px;
-margin-left: 100px;
-margin-top: 10px;
+  max-width: 300px;
+  margin-left: 100px;
+  margin-top: 10px;
 }
 .mb-3{
-margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 .vb {
-font-size: 250%;
-margin-left: 137px;
-color: grey;
-margin-top: 30px;
+  font-size: 250%;
+  margin-left: 120px;
+  color: grey;
+  margin-top: 30px;
 }
 .btn {
-background-color: #DCDCDC;
-color: black;
-width: 300px;
-margin-top: 20px;
-margin-left: 100px;
+  background-color: #DCDCDC;
+  color: black;
+  width: 300px;
+  margin-top: 20px;
+  margin-left: 100px;
 }
 .regs {
-margin-left: 435px;
-margin-bottom: 50px;
+  margin-left: 435px;
+  margin-bottom: 50px;
 }
 #error_explanation {
-margin-left: 330px;
+  margin-left: 330px;
 }
 .field_with_errors {
-padding: 1x;
-background-color: white;
+  padding: 1px;
+  background-color: white;
 }
 #logo {
-max-height: 65px;
-max-width: 40px;
-background-color: white;
-margin-top: 5px;
+  max-height: 65px;
+  max-width: 40px;
+  background-color: white;
+  margin-top: 5px;
 }
 .link_to_sign{
-margin-left: 170px;
+  margin-left: 170px;
 }

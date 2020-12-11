@@ -1,3 +1,15 @@
 // Place all the styles related to the session controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+#alert {
+  color: #cc0000;
+  margin-left: 140px;
+}
+.form-sign {
+  margin: 0 auto;
+  background-color: white;
+  border: 2px solid grey;
+  border-radius: 15px;
+  height: 400px;
+  width: 500px;
+}
