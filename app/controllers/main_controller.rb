@@ -2,7 +2,7 @@
 
 # All logic
 class MainController < ApplicationController
-  before_action :set_user, only: %i[index my_profile edit create destroy]
+  before_action :set_user, only: %i[index my_profile edit create destroy love_users]
   def index
     @persons = User.all.order(:id).reverse_order
   end
@@ -39,11 +39,40 @@ class MainController < ApplicationController
     end
   end
 
-  def love_users; end
+  def love_users
+    all_id = []
+    UserCommunication.where(liker: @_current.id).find_each do |communication|
+      all_id << communication.like
+    end
+    @all_users = all_id.map { |current_id| User.find_by_id(current_id) }
+  end
 
   def destroy
     @_current.destroy
     redirect_to root_url
+  end
+
+  def add
+    kogo = params[:kogo]
+    kto = params[:kto]
+    comm = UserCommunication.new
+    comm.liker = kto
+    comm.like = kogo
+    if comm.save
+      respond_to do |format|
+        format.js
+      end
+    end
+  end
+
+  def delete
+    kogo = params[:kogo]
+    kto = params[:kto]
+    communication_to_delete = UserCommunication.find_by_like_and_liker(kogo, kto)
+    communication_to_delete.destroy
+    respond_to do |format|
+      format.js
+    end
   end
 
   private

@@ -1,0 +1,49 @@
+<div class="container">
+  <div id="main">
+    <header class="hea">
+      <nav class="navbar navbar-expand-md fixed-top">
+        <img id="logo" src="/assets/сердце3.svg">
+        <a class="navbar-brand text-dark site_name" href="#">VBomonke</a>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+        </div >
+        <div id="but">
+            <a href= "../main/my_profile"> <button type="button" class="btn btn-outline-secondary">Вернуться к профилю</button></a>
+        </div>
+      </nav>
+    </header>
+    <% if @all_users.length == 0 %>
+      <span id="new"><%=t 'sorry'%></span>
+      <% else %>
+    <span id="new"><%=t 'nice'%></span>
+      <% end %>
+
+    <% @all_users.each do |person| %>
+
+        <div class="col-9 ">
+          <div class="row question-box">
+            <div class="col-3 a">
+              <% if person.avatar.file.nil?%>
+                <img src="/assets/def_avatar.jpg" class="question-img"alt="Аватар">
+              <% else %>
+                <%= image_tag person.avatar.url, :class => "question-img", :alt => "Аватар"%>
+              <% end %>
+            </div>
+            <div class="col-9 a">
+              <div class="question-title a"><a class="text-dark" href="../profile/<%= person.id %>"><%= person.first_name %> <%= person.last_name %>  </a></div>
+              <span class="question-text a" ><%= person.status %> </span>
+              <br/><br>
+              <span class="question-text a"><%= person.group %> </span>
+              <div class="row">
+                <div class="col-5 a">
+                </div>
+                  <div class="nrav">
+                    <button id = "btn_love" class=" nrav_btn love" onclick="change_color(this);">Нравится</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    <%end %>
+  </div>
+</div>

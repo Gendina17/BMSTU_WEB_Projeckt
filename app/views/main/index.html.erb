@@ -39,7 +39,11 @@
             </div>
             <% if @_current %>
             <div class="nrav">
-              <button id = "btn_love" class=" nrav_btn" onclick="change_color(this);">Нравится</button>
+              <%= link_to  'Нравится ', main_add_path(params: { kto:@_current.id, kogo:person.id }), remote: true %>
+              <%= link_to  'Не нравится ', main_delete_path(params: { kto:@_current.id, kogo:person.id }), remote: true %>
+              <button id = "btn_love" class=" nrav_btn" onclick="change_color(this, <%= person.id %>, <%= @_current.id %>);">Нравится</button>
+
+
             </div>
             <% end %>
           </div>
@@ -50,3 +54,5 @@
     <%end %>
   </div>
 </div>
+
+

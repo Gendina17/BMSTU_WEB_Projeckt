@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   get '/signout', to: 'session#destroy'
   get 'session/destroy'
   get 'love', to: 'main#love_users'
+  get 'users/in'
+  get 'main/add'
+  get 'main/delete'
   resources :session, only: %i[new create destroy]
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

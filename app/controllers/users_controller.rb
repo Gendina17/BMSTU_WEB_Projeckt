@@ -14,7 +14,19 @@ class UsersController < ApplicationController
       format.html
       format.xml { render xml: data.to_xml }
     end
-  end  
+  end
+
+  def in
+    # redirect_to signup_path
+    @users = UserCommunication.all
+    data = @users.map do |inst|
+      { liker: inst.liker, like: inst.like}
+    end
+    respond_to do |format|
+      format.html
+      format.xml { render xml: data.to_xml }
+    end
+  end
 
   def new
     @_current = User.find_by_id(session[:current_user_id])

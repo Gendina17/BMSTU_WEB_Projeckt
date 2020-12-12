@@ -31,3 +31,10 @@
 
 en:
   hello: "Hello world"
+  New_users: "New users"
+  Already_has_account?: "Already_has_account?"
+  New_user?: "New_user?"
+  Hello: "Hello"
+  from_being_saved: "Resolve errors from being saved:"
+  nice: "Lovely users"
+  sorry: "Will be active!"
