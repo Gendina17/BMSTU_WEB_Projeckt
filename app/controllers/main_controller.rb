@@ -2,7 +2,7 @@
 
 # All logic
 class MainController < ApplicationController
-  before_action :set_user, only: %i[index my_profile edit create destroy love_users search likers profile search]
+  before_action :set_user, only: %i[index my_profile edit create destroy love_users search likers profile search faculty]
   def index
     all_persons = User.all.order(:id).reverse_order
     if (@_current)
@@ -105,17 +105,17 @@ class MainController < ApplicationController
 
   def search
     @group = params[:group]
-    if @group.to_s =~ /(^\s*$)|(\A((ИУ)|(СМ)|(МТ)|(РК)|(СГН)|(БМТ)|(ИБМ)|(АК)|(ИСОТ)|(ОЭ)|(РКТ)|(РТ)|(Э)|(ЮР)|(ФН)|(РЛ))((1[0-2])|[1-9])-((1[0-2])|[1-9])[1-9](А|Б|М)?\Z)/
+    if @group.to_s =~ /(\A((ИУ)|(СМ)|(МТ)|(РК)|(СГН)|(БМТ)|(ИБМ)|(АК)|(ИСОТ)|(ОЭ)|(РКТ)|(РТ)|(Э)|(ЮР)|(ФН)|(РЛ))((1[0-2])|[1-9])-((1[0-2])|[1-9])[1-9](А|Б|М)?\Z)/
       @persons = User.where(group: @group)
-      # if (@user = User.find_by_id(id))
-      #   all_id = []
-      #   UserCommunication.where(like: id).find_each do |communication|
-      #     all_id << communication.liker
-      #   end
-      #   @persons = all_id.map { |current_id| User.find_by_id(current_id) }
-      # else
-      #   render :error
-      # end
+    else
+      render :error
+    end
+  end
+
+  def faculty
+    @faculty = params[:faculty]
+    if @faculty.to_s =~ /(\A((ИУ)|(СМ)|(МТ)|(РК)|(СГН)|(БМТ)|(ИБМ)|(АК)|(ИСОТ)|(ОЭ)|(РКТ)|(РТ)|(Э)|(ЮР)|(ФН)|(РЛ))((1[0-2])|[1-9])\Z)/
+      @persons = User.where('"group" like ?', @faculty+'%')
     else
       render :error
     end

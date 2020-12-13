@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'profile/:id', to: 'main#profile'
   get 'likers/:id', to: 'main#likers'
   get 'search/:group', to: 'main#search'
+  get 'faculty/:faculty', to: 'main#faculty'
   get 'main/my_profile'
   get '/signin', to: 'session#new'
   get '/signup', to: 'users#new'
