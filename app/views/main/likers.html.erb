@@ -7,15 +7,14 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
         </div >
         <div id="but">
-
-            <a href= "../main/my_profile"> <button type="button" class="btn btn-outline-secondary">Мой профиль: <%= @_current.last_name %></button></a>
+          <a href= "../main/my_profile"> <button type="button" class="btn btn-outline-secondary">Мой профиль: <%= @_current.last_name %></button></a>
         </div>
       </nav>
     </header>
     <% if @persons.length==0 %>
-      <span id="new"><%=t 'no_likers'%><%= @user.first_name %> <%= @user.last_name %></span>
+    <span id="new"><%=t 'no_likers'%><%= @user.first_name %> <%= @user.last_name %></span>
     <% else %>
-      <span id="new"><%=t 'likers'%><%= @user.first_name %> <%= @user.last_name %></span>
+    <span id="new"><%=t 'likers'%><%= @user.first_name %> <%= @user.last_name %></span>
     <% end %>
     <%= render 'main/ list' %>
   </div>

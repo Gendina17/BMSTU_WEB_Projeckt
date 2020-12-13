@@ -7,17 +7,16 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
         </div >
         <div id="but">
-            <a href= "../faculty/<%= @group.split('-')[0] %>"> <button type="button" class="btn btn-outline-secondary">Направление: <%= @group.split('-')[0] %></button></a>
-            <a href= "../main/my_profile"> <button type="button" class="btn btn-outline-secondary">Мой профиль: <%= @_current.last_name %></button></a>
+          <a href= "../faculty/<%= @group.split('-')[0] %>"> <button type="button" class="btn btn-outline-secondary">Направление: <%= @group.split('-')[0] %></button></a>
+          <a href= "../main/my_profile"> <button type="button" class="btn btn-outline-secondary">Мой профиль: <%= @_current.last_name %></button></a>
         </div>
       </nav>
     </header>
     <% if @persons.length==0 %>
-      <span id="new">Из группы <%= @group %> пока не зарегестрирован ни один польззователь </span>
+    <span id="new">Из группы <%= @group %> пока не зарегестрирован ни один польззователь </span>
     <% else %>
-      <span id="new"><%=t 'group'%> <%= @group %></span>
+    <span id="new"><%=t 'group'%> <%= @group %></span>
     <% end %>
-
     <%= render 'main/ list' %>
   </div>
 </div>

@@ -18,10 +18,10 @@
       </nav>
     </header>
     <% if @persons.length==0 %>
-      <span id="new"><%=t 'no_users'%></span>
-      <% else %>
+    <span id="new"><%=t 'no_users'%></span>
+    <% else %>
     <span id="new"><%=t 'New_users'%></span>
-      <% end %>
+    <% end %>
     <% @persons.each do |person| %>
     <% if !@_current || @_current.id != person.id %>
     <div class="col-9 ">
@@ -43,7 +43,7 @@
             </div>
             <% if @_current %>
             <div class="nrav">
-             <%= link_to image_tag(image_path('сердце3.svg'), class: "mini"), main_add_path(params: { kto:@_current.id, kogo:person.id }), remote: true, id: "add_#{person.id}"%>
+              <%= link_to image_tag(image_path('сердце3.svg'), class: "mini"), main_add_path(params: { kto:@_current.id, kogo:person.id }), remote: true, id: "add_#{person.id}"%>
               <%= link_to  image_tag(image_path('разбито1.jpg'), class: "mini2"), main_delete_path(params: { kto:@_current.id, kogo:person.id }), remote: true,  id: "dis_#{person.id}", class: "mini_a"%>
               <a href="../likers/<%= person.id %>"><span id="like_<%= person.id %>" class="number_like"><%= UserCommunication.where(like: person.id).count %></span></a>
             </div>
