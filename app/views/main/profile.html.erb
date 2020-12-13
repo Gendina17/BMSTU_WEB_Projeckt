@@ -57,7 +57,7 @@
                   <%key+=1 %>
                   <% end %>
                   <% if !@man.love_status.nil? && !@man.love_status.empty? %>
-                  <tr><td class="active">Семейное положение:</td><td><%= @man.love_status %></td></tr>
+                  <tr><td class="active">Личный статус:</td><td><%= @man.love_status %></td></tr>
                   <%key+=1 %>
                   <% end %>
                   <% if !@man.contact.nil? && !@man.contact.empty? %>
@@ -80,8 +80,14 @@
       </div>
     </div>
   </div>
-  <div class="">
-    <button id = "btn_love" class=" nrav_btn" onclick="change_color(this);">Нравится</button>
-  </div>
+  <% if UserCommunication.find_by_liker_and_like(@_current.id, @man.id) %>
+    <%= link_to image_tag(image_path('сердце3.svg'), class: "mini"), main_add_path(params: { kto:@_current.id, kogo:@man.id }), remote: true, id: "add_#{@man.id}", class: "mini_a"%>
+    <%= link_to  image_tag(image_path('разбито1.jpg'), class: "mini2"), main_delete_path(params: { kto:@_current.id, kogo:@man.id }), remote: true,  id: "dis_#{@man.id}"%>
+  <% else %>
+    <%= link_to image_tag(image_path('сердце3.svg'), class: "mini"), main_add_path(params: { kto:@_current.id, kogo:@man.id }), remote: true, id: "add_#{@man.id}"%>
+    <%= link_to  image_tag(image_path('разбито1.jpg'), class: "mini2"), main_delete_path(params: { kto:@_current.id, kogo:@man.id }), remote: true,  id: "dis_#{@man.id}", class: "mini_a"%>
+  <% end %>
+  <a href="../likers/<%= @man.id %>"><span id="like_<%= @man.id %>" class="number_like"><%= UserCommunication.where(like: @man.id).count %></span></a>
+
 </div>
 </div>

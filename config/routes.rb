@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post 'main/create'
   patch 'main/create'
   get 'profile/:id', to: 'main#profile'
+  get 'likers/:id', to: 'main#likers'
   get 'main/my_profile'
   get '/signin', to: 'session#new'
   get '/signup', to: 'users#new'
@@ -21,6 +22,8 @@ Rails.application.routes.draw do
   get 'users/in'
   get 'main/add'
   get 'main/delete'
+  get 'main/delete_card'
+
   resources :session, only: %i[new create destroy]
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

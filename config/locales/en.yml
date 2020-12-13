@@ -38,3 +38,6 @@ en:
   from_being_saved: "Resolve errors from being saved:"
   nice: "Lovely users"
   sorry: "Will be active!"
+  no_users: "Sorry, but no new users"
+  likers: "Likers: "
+  no_likers: "Nobody likers: "

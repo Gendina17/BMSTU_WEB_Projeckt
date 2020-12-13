@@ -1,2 +1,7 @@
-a = document.getElementById('btn_love')
-a.classList.toggle("love");
+num = document.getElementById('like_<%= @kogo %>')
+num.style.color = "red";
+num.textContent = Number(num.textContent) +1;
+like = document.getElementById('add_<%= @kogo %>')
+like.style.display = "none"
+dislike = document.getElementById('dis_<%= @kogo %>')
+dislike.style.display = "inline"
