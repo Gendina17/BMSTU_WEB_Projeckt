@@ -41,7 +41,7 @@
                 <tbody>
                   <% key=0 %>
                   <% if !@man.group.nil? && !@man.group.empty? %>
-                  <tr><td class="active">Группа</td><td><%= @man.group %> </td></tr>
+                  <tr><td class="active">Группа</td><td><a href="/search/<%= @man.group %>"> <%= @man.group %></a> </td></tr>
                   <%key+=1 %>
                   <% end %>
                   <% if !@man.city.nil? && !@man.city.empty? %>

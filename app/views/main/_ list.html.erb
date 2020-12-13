@@ -1,0 +1,45 @@
+<% @persons.each do |person| %>
+  <div class="col-9 ">
+    <div class="row question-box">
+      <div class="col-3 a">
+        <% if person.avatar.file.nil?%>
+          <img src="/assets/def_avatar.jpg" class="question-img"alt="Аватар">
+        <% else %>
+          <%= image_tag person.avatar.url, :class => "question-img", :alt => "Аватар"%>
+        <% end %>
+      </div>
+      <div class="col-9 a">
+        <% if !@_current || @_current.id != person.id %>
+          <div class="question-title a"><a class="text-dark" href="../profile/<%= person.id %>"><%= person.first_name %> <%= person.last_name %>  </a></div>
+        <% else %>
+          <div class="question-title a"><a class="text-dark" href="../main/my_profile"><%= person.first_name %> <%= person.last_name %>  </a></div>
+        <% end %>
+        <span class="question-text a" ><%= person.status %> </span>
+        <br/><br>
+        <a href="/search/<%= person.group %>"> <span class="question-text a"><%= person.group %> </span> </a>
+        <div class="row">
+          <div class="col-5 a">
+          </div>
+          <% if @_current %>
+            <div class="nrav">
+
+              <% if !@_current || @_current.id != person.id %>
+
+                <% if UserCommunication.find_by_liker_and_like(@_current.id, person.id) %>
+                  <%= link_to image_tag(image_path('сердце3.svg'), class: "mini"), main_add_path(params: { kto:@_current.id, kogo:person.id }), remote: true, id: "add_#{person.id}", class: "mini_a"%>
+                  <%= link_to  image_tag(image_path('разбито1.jpg'), class: "mini2"), main_delete_path(params: { kto:@_current.id, kogo:person.id }), remote: true,  id: "dis_#{person.id}"%>
+                <% else %>
+                  <%= link_to image_tag(image_path('сердце3.svg'), class: "mini"), main_add_path(params: { kto:@_current.id, kogo:person.id }), remote: true, id: "add_#{person.id}"%>
+                  <%= link_to  image_tag(image_path('разбито1.jpg'), class: "mini2"), main_delete_path(params: { kto:@_current.id, kogo:person.id }), remote: true,  id: "dis_#{person.id}", class: "mini_a"%>
+                <% end %>
+                <a href="../likers/<%= person.id %>"><span id="like_<%= person.id %>" class="number_like"><%= UserCommunication.where(like: person.id).count %></span></a>
+
+              <% else %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<%end %>
