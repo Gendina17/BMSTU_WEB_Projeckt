@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   patch 'main/create'
   get 'profile/:id', to: 'main#profile'
   get 'likers/:id', to: 'main#likers'
+  get 'search/:group', to: 'main#search'
   get 'main/my_profile'
   get '/signin', to: 'session#new'
   get '/signup', to: 'users#new'
