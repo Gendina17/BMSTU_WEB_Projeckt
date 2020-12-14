@@ -7,11 +7,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     @user = users(:one)
   end
 
-  test 'should get index' do
-    get users_url
-    assert_response :success
-  end
-
   test 'should get new' do
     get new_user_url
     assert_response :success
@@ -19,32 +14,15 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create user' do
     assert_difference('User.count') do
-      post users_url, params: { user: { email: @user.email, first_name: @user.first_name, last_name: @user.last_name, password_digest: @user.password_digest } }
+      post users_url, params: { user: { email: 'nina@mail.com', last_name: 'nina', password: '123456', password_confirmation: '123456',last_name: 'nina'} }
     end
-
-    assert_redirected_to user_url(User.last)
+    assert_redirected_to signin_url
   end
 
-  test 'should show user' do
-    get user_url(@user)
-    assert_response :success
-  end
-
-  test 'should get edit' do
-    get edit_user_url(@user)
-    assert_response :success
-  end
-
-  test 'should update user' do
-    patch user_url(@user), params: { user: { email: @user.email, first_name: @user.first_name, last_name: @user.last_name, password_digest: @user.password_digest } }
-    assert_redirected_to user_url(@user)
-  end
-
-  test 'should destroy user' do
-    assert_difference('User.count', -1) do
-      delete user_url(@user)
+  test 'should not create user' do
+    assert_no_difference('User.count') do
+      post users_url, params: { user: { email: 'nina', password: '123456' } }
     end
-
-    assert_redirected_to users_url
   end
+
 end

@@ -8,11 +8,11 @@
         </div >
         <div id="but">
           <% if @_current %>
-          <a href="../signout"><button type="button" class="btn btn-outline-secondary">Выход</button></a>
-          <a href= "../main/my_profile"> <button type="button" class="btn btn-outline-secondary">Мой профиль: <%= @_current.last_name %></button></a>
+          <a href="../signout"><button type="button" id="exit" class="btn btn-outline-secondary">Выход</button></a>
+          <a href= "../main/my_profile"> <button type="button" id="prof" class="btn btn-outline-secondary">Мой профиль: <%= @_current.last_name %></button></a>
           <%else %>
-          <a href="../signin"><button type="button" class="btn btn-outline-secondary"  >Вход</button></a>
-          <a href="../signup"> <button type="button" class="btn btn-outline-secondary">Регистрация</button></a>
+          <a href="../signin"><button type="button" id="entre" class="btn btn-outline-secondary"  >Вход</button></a>
+          <a href="../signup"> <button type="button" id="reg" class="btn btn-outline-secondary">Регистрация</button></a>
           <% end %>
         </div>
       </nav>

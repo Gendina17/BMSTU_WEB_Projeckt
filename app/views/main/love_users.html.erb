@@ -35,7 +35,7 @@
             <div class="col-5 a">
             </div>
             <div class="nrav">
-              <%= link_to  image_tag(image_path('разбито1.jpg'), class: "mini_del"), main_delete_card_path(params: { kto:@_current.id, kogo:person.id }), remote: true, data: { confirm: 'Вы уверены, что этот пользователь вам больше не нравится?' } %>
+              <%= link_to  image_tag(image_path('разбито1.jpg'), class: "mini_del"), main_delete_card_path(params: { kto:@_current.id, kogo:person.id }), remote: true, id: "dis_#{person.id}", data: { confirm: 'Вы уверены, что этот пользователь вам больше не нравится?' } %>
               <a href="../likers/<%= person.id %>"><span id="like_<%= person.id %>" class="number_like"><%= UserCommunication.where(like: person.id).count %></span></a>
             </div>
           </div>

@@ -7,7 +7,7 @@ one:
   last_name: MyText
 
 two:
-  email: MyText
-  password_digest: MyText
-  first_name: MyText
-  last_name: MyText
+  email: MyText2
+  password_digest: MyText2
+  first_name: MyText2
+  last_name: MyText2
