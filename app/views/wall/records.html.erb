@@ -1,0 +1,49 @@
+<body class="wall">
+<div class="container">
+  <div id="main">
+    <header class="hea">
+      <nav class="navbar navbar-expand-md fixed-top">
+        <img id="logo" src="/assets/сердце3.svg">
+        <a class="navbar-brand text-dark site_name" href="../../">VBomonke</a>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+        </div >
+        <div id="but">
+          <% if @_current.id == @id %>
+          <a href="../add_record"><button type="button" id="exit" class="btn btn-outline-secondary">Создать запись</button></a>
+            <% end %>
+        </div>
+      </nav>
+    </header>
+    <% if @records.length==0 %>
+      <span id="new">Пользователь пока не оставил ни одной записи</span>
+    <% else %>
+      <span id="new">Стена пользователя: <%= @_current.first_name %> <%= @_current.last_name %></span>
+    <% end %>
+    <% @records.each do |record| %>
+      <div id="<%= record.id %>" class="col-9 ">
+          <div class="row question-box">
+            <div class="col a">
+              <div class="question-title a"><%= record.title %>
+                <% if record.status == 'Поток мыслей' %>
+                <%= image_tag(image_path('мозг.png'), class: "mini", title: "Поток мыслей") %>
+                  <% elsif record.status == 'То, что мне нравится'%>
+                  <%= image_tag(image_path('нравится.jpg'), class: "mini", title: "То, что мне нравится") %>
+                <% else %>
+                  <%= image_tag(image_path('не_нравится.jpg'), class: "mini", title: "Это мне не нравится") %>
+                <% end %>
+              </div>
+              <span class="question-text a" ><%= record.body %> </span>
+              <br/><br>
+                <% if @_current.id == @id %>
+                  <div class="nrav">
+                    <%= link_to image_tag(image_path('настройки.jpg'), class: "mini"), edit_record_path(params: { id: record.id }), class: "edit"%>
+                    <%= link_to  image_tag(image_path('корзина.jpg'), class: "mini2"), wall_delete_record_path(params: { id: record.id }), remote: true,  id: "dis_#{record.id}"%>
+                  </div>
+                <% end %>
+              </div>
+          </div>
+        </div>
+    <%end %>
+  </div>
+</div>
+</body>

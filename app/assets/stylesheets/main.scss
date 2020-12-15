@@ -194,8 +194,13 @@ img {
 .mini_a{
   display: none;
 }
-
-
+.mini_star {
+  width: 30px;
+  height: 30px;
+}
+.mini_star:hover{
+  padding: 3px;
+}
 
 
 

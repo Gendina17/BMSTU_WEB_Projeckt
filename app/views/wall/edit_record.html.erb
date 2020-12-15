@@ -1,0 +1,26 @@
+<body class="wall">
+<div  class ="sign_form">
+  <% if @edit_record.errors.any? %>
+    <div id="error_explanation">
+      <h2> <%=t 'from_being_saved'%> </h2>
+      <ul>
+        <% @edit_record.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%=  form_with(model:@edit_record,  local: true, url: wall_update_path(id: @edit_record.id), :class => 'form-signin') do |form|%>
+    <h1 class="vb">&nbsp;&nbsp;Новая запись</h1><br/>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= form.text_field :title, :class => 'form-control inp',:placeholder => 'Заголовок '%>
+    <%= form.text_area :body, :class => 'form-control inp' ,:placeholder => 'Поделитесь своими мыслями...' %>
+    <div class="form-control inp" > <%= form.select :status, ["Поток мыслей", "То, что мне нравится", "Это мне не нравится"] , :class => 'form-control inp' %> </div>
+    <%= form.submit 'Редактировать', :class => 'btn btn-outline-secondary'   %>
+    <span class="link_to_sign">Передумали?</span>
+    <%= link_to "Вернуться", "/records/#{@_current.id}" %>
+    <br><br>
+
+  <% end %>
+</div>
+</body>
