@@ -22,7 +22,6 @@ Rails.application.routes.draw do
   get '/signout', to: 'session#destroy'
   get 'session/destroy'
   get 'love', to: 'main#love_users'
-  get 'users/in'
   get 'records/:id', to: 'wall#records'
   get '/edit_record/', to: 'wall#edit_record'
   get 'wall/delete_record'

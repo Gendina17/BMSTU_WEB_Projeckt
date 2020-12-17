@@ -9,27 +9,27 @@
         </div >
         <div id="but">
           <% if @_current.id == @id %>
-          <a href="../add_record"><button type="button" id="exit" class="btn btn-outline-secondary">Создать запись</button></a>
+          <a href="../add_record"><button type="button" id="exit" class="btn btn-outline-secondary"><%=t 'create_rec'%></button></a>
             <% end %>
         </div>
       </nav>
     </header>
     <% if @records.length==0 %>
-      <span id="new">Пользователь пока не оставил ни одной записи</span>
+      <span id="new"><%=t 'new_mess'%></span>
     <% else %>
-      <span id="new">Стена пользователя: <%= @_current.first_name %> <%= @_current.last_name %></span>
+      <span id="new"><%=t 'new_mess_true'%> <%= @author.first_name %> <%= @author.last_name %></span>
     <% end %>
     <% @records.each do |record| %>
       <div id="<%= record.id %>" class="col-9 ">
           <div class="row question-box">
             <div class="col a">
               <div class="question-title a"><%= record.title %>
-                <% if record.status == 'Поток мыслей' %>
-                <%= image_tag(image_path('мозг.png'), class: "mini", title: "Поток мыслей") %>
-                  <% elsif record.status == 'То, что мне нравится'%>
-                  <%= image_tag(image_path('нравится.jpg'), class: "mini", title: "То, что мне нравится") %>
+                <% if record.status == t('tag_one') %>
+                <%= image_tag(image_path('мозг.png'), class: "mini", title: t('tag_one')) %>
+                  <% elsif record.status == t('tag_two')%>
+                  <%= image_tag(image_path('нравится.jpg'), class: "mini", title: t('tag_two')) %>
                 <% else %>
-                  <%= image_tag(image_path('не_нравится.jpg'), class: "mini", title: "Это мне не нравится") %>
+                  <%= image_tag(image_path('не_нравится.jpg'), class: "mini", title: t('tag_tree')) %>
                 <% end %>
               </div>
               <span class="question-text a" ><%= record.body %> </span>

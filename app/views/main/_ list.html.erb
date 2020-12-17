@@ -1,9 +1,10 @@
 <% @persons.each do |person| %>
+  <% if person %>
 <div class="col-9 ">
   <div class="row question-box">
     <div class="col-3 a">
       <% if person.avatar.file.nil?%>
-      <img src="/assets/def_avatar.jpg" class="question-img"alt="Аватар">
+      <img src="/assets/def_avatar.jpg" class="question-img" alt= "<%=t 'avatar'%>">
       <% else %>
       <%= image_tag person.avatar.url, :class => "question-img", :alt => "Аватар"%>
       <% end %>
@@ -40,3 +41,4 @@
   </div>
 </div>
 <%end %>
+<% end %>

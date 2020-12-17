@@ -5,7 +5,7 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
     </div >
     <div id="but">
-      <a href="../records/<%= @man.id %>"><button type="button" class="btn btn-outline-secondary">Стена</button></a>
+      <a href="../records/<%= @man.id %>"><button type="button" class="btn btn-outline-secondary"><%=t 'wall'%></button></a>
     </div>
   </nav>
 </header>
@@ -44,38 +44,38 @@
                 <tbody>
                   <% key=0 %>
                   <% if !@man.group.nil? && !@man.group.empty? %>
-                  <tr><td class="active">Группа</td><td><a href="/search/<%= @man.group %>"> <%= @man.group %></a> </td></tr>
+                  <tr><td class="active"><%=t 'group'%></td><td><a href="/search/<%= @man.group %>"> <%= @man.group %></a> </td></tr>
                   <%key+=1 %>
                   <% end %>
                   <% if !@man.city.nil? && !@man.city.empty? %>
-                  <tr><td class="active">Страна:</td><td><%= @man.city %> </td></tr>
+                  <tr><td class="active"><%=t 'country'%>:</td><td><%= @man.city %> </td></tr>
                   <%key+=1 %>
                   <% end %>
                   <% if !@man.town.nil? && !@man.town.empty? %>
-                  <tr><td class="active">Родной город:</td><td><%= @man.town %> </td></tr>
+                  <tr><td class="active"><%=t 'town'%></td><td><%= @man.town %> </td></tr>
                   <%key+=1 %>
                   <% end %>
                   <% if !@man.born.to_s.nil? && !@man.born.to_s.empty? %>
-                  <tr><td class="active">Дата рождения:</td><td><%= @man.born %></td></tr>
+                  <tr><td class="active"><%=t 'born'%></td><td><%= @man.born %></td></tr>
                   <%key+=1 %>
                   <% end %>
                   <% if !@man.love_status.nil? && !@man.love_status.empty? %>
-                  <tr><td class="active">Личный статус:</td><td><%= @man.love_status %></td></tr>
+                  <tr><td class="active"><%=t 'status'%>:</td><td><%= @man.love_status %></td></tr>
                   <%key+=1 %>
                   <% end %>
                   <% if !@man.contact.nil? && !@man.contact.empty? %>
-                  <tr><td class="active">Контакты:</td><td><a href="<%= @man.contact %>" target="_blank">ссылка</a> </td></tr>
+                  <tr><td class="active"><%=t 'contact'%></td><td><a href="<%= @man.contact %>" target="_blank"><%=t 'ssil'%></a> </td></tr>
                   <%key+=1 %>
                   <% end %>
                   <% if !@man.info.nil? && !@man.info.empty? %>
                   <%key+=1 %>
-                  <tr><td class="active">О себе:</td><td><%= @man.info %> </td></tr>
+                  <tr><td class="active"><%=t 'about'%></td><td><%= @man.info %> </td></tr>
                   <% end %>
                 </tbody>
               </table>
               <% if key<4 %>
               <br><br>
-              <h6 class="zam">К сожалению, пользотель заполнил не много информации о себе</h6>
+              <h6 class="zam"><%=t 'zam_prof'%></h6>
               <% end %>
             </div>
           </div>

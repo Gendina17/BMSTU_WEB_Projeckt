@@ -8,11 +8,11 @@
         </div >
         <div id="but">
           <% if @_current %>
-          <a href="../signout"><button type="button" id="exit" class="btn btn-outline-secondary">Выход</button></a>
-          <a href= "../main/my_profile"> <button type="button" id="prof" class="btn btn-outline-secondary">Мой профиль: <%= @_current.last_name %></button></a>
+          <a href="../signout"><button type="button" id="exit" class="btn btn-outline-secondary"><%=t 'output'%></button></a>
+          <a href= "../main/my_profile"> <button type="button" id="prof" class="btn btn-outline-secondary"><%=t 'my_profile'%> <%= @_current.last_name %></button></a>
           <%else %>
-          <a href="../signin"><button type="button" id="entre" class="btn btn-outline-secondary"  >Вход</button></a>
-          <a href="../signup"> <button type="button" id="reg" class="btn btn-outline-secondary">Регистрация</button></a>
+          <a href="../signin"><button type="button" id="entre" class="btn btn-outline-secondary"  ><%=t 'entry'%></button></a>
+          <a href="../signup"> <button type="button" id="reg" class="btn btn-outline-secondary"><%=t 'registration'%></button></a>
           <% end %>
         </div>
       </nav>
@@ -28,7 +28,7 @@
       <div class="row question-box">
         <div class="col-3 a">
           <% if person.avatar.file.nil?%>
-          <img src="/assets/def_avatar.jpg" class="question-img"alt="Аватар">
+          <img src="/assets/def_avatar.jpg" class="question-img"alt="<%=t 'avatar'%>">
           <% else %>
           <%= image_tag person.avatar.url, :class => "question-img", :alt => "Аватар"%>
           <% end %>
@@ -43,8 +43,8 @@
             </div>
             <% if @_current %>
             <div class="nrav">
-              <%= link_to image_tag(image_path('сердце3.svg'), class: "mini"), main_add_path(params: { kto:@_current.id, kogo:person.id }), remote: true, id: "add_#{person.id}"%>
-              <%= link_to  image_tag(image_path('разбито1.jpg'), class: "mini2"), main_delete_path(params: { kto:@_current.id, kogo:person.id }), remote: true,  id: "dis_#{person.id}", class: "mini_a"%>
+              <%= link_to image_tag(image_path('сердце3.svg'), class: "mini"), main_add_path(params: { kogo:person.id }), remote: true, id: "add_#{person.id}"%>
+              <%= link_to  image_tag(image_path('разбито1.jpg'), class: "mini2"), main_delete_path(params: {  kogo:person.id }), remote: true,  id: "dis_#{person.id}", class: "mini_a"%>
               <a href="../likers/<%= person.id %>"><span id="like_<%= person.id %>" class="number_like"><%= UserCommunication.where(like: person.id).count %></span></a>
             </div>
             <% end %>

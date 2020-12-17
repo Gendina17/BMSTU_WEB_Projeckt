@@ -1,4 +1,6 @@
-require "application_system_test_case"
+# frozen_string_literal: true
+
+require 'application_system_test_case'
 
 class MainsTest < ApplicationSystemTestCase
   setup do
@@ -9,7 +11,7 @@ class MainsTest < ApplicationSystemTestCase
     click_on 'commit'
   end
 
-   test 'test_to_index_with_autorization' do
+  test 'test_to_index_with_autorization' do
     visit root_url
     find('#exit').click
     assert_text 'Новый пользователь? Зарегестрируйся!'
@@ -30,26 +32,23 @@ class MainsTest < ApplicationSystemTestCase
   end
 
   test 'test_to_love_without_like' do
-  	visit root_url
+  	 visit root_url
     find("#add_#{User.find_by_email('MyText').id}").click
-    visit "/love/"
+    visit '/love/'
     assert_text 'MyText'
     find("#dis_#{User.find_by_email('MyText').id}").click
   end
 
   test 'test_to_love_with_like' do
-    visit "/love/"
+    visit '/love/'
     assert_text 'К сожалению, вам пока никто не понравился'
   end
 
- test 'no updating a User' do
+  test 'no updating a User' do
     visit '/main/edit'
     fill_in 'user[last_name]', with: 'Ninochka'
     fill_in 'user[group]', with: 'ИУ'
     fill_in 'user[password]', with: '123456'
     assert_text 'Передумали?'
   end
-
-
-
 end

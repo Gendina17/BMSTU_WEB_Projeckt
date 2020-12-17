@@ -25,6 +25,4 @@ class MainControllerTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     assert_redirected_to signin_url
   end
-
- 
 end

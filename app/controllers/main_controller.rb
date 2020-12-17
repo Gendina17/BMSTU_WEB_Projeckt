@@ -2,10 +2,11 @@
 
 # All logic
 class MainController < ApplicationController
-  before_action :set_user, only: %i[index my_profile edit create destroy love_users search likers profile search faculty]
+  before_action :set_user, only: %i[index my_profile edit create destroy
+                                    love_users search likers profile search faculty add]
   def index
     all_persons = User.all.order(:id).reverse_order
-    if (@_current)
+    if @_current
       @persons = []
       all_persons.find_each do |person|
         @persons << person unless UserCommunication.find_by_liker_and_like(@_current.id, person.id)
@@ -53,13 +54,15 @@ class MainController < ApplicationController
   end
 
   def destroy
+    UserCommunication.where(like: @_current.id).find_each(&:destroy)
+    UserCommunication.where(liker: @_current.id).find_each(&:destroy)
     @_current.destroy
     redirect_to root_url
   end
 
   def add
     @kogo = params[:kogo]
-    kto = params[:kto]
+    kto = @_current.id
     comm = UserCommunication.new
     comm.liker = kto
     comm.like = @kogo
@@ -67,12 +70,14 @@ class MainController < ApplicationController
       respond_to do |format|
         format.js
       end
+    else
+      render :error
     end
   end
 
   def delete
     @kogo = params[:kogo]
-    delete_communication(@kogo, params[:kto])
+    delete_communication(@kogo, @_current.id)
     respond_to do |format|
       format.js
     end
@@ -80,7 +85,7 @@ class MainController < ApplicationController
 
   def delete_card
     @kogo = params[:kogo]
-    delete_communication(@kogo, params[:kto])
+    delete_communication(@kogo, @_current.id)
     respond_to do |format|
       format.js
     end
@@ -115,7 +120,7 @@ class MainController < ApplicationController
   def faculty
     @faculty = params[:faculty]
     if @faculty.to_s =~ /(\A((ИУ)|(СМ)|(МТ)|(РК)|(СГН)|(БМТ)|(ИБМ)|(АК)|(ИСОТ)|(ОЭ)|(РКТ)|(РТ)|(Э)|(ЮР)|(ФН)|(РЛ))((1[0-2])|[1-9])\Z)/
-      @persons = User.where('"group" like ?', @faculty+'%')
+      @persons = User.where('"group" like ?', @faculty + '%')
     else
       render :error
     end

@@ -29,23 +29,23 @@ class SessionsTest < ApplicationSystemTestCase
     assert_text 'Новый пользователь? Зарегестрируйся!'
   end
 
-   test 'test_no_registration' do
-    visit signup_url
-    fill_in 'user[first_name]', with: 'Nina'
-    fill_in 'user[last_name]', with: 'Ninova'
-    fill_in 'user[email]', with: 'ninaaaaaaaaaa'
-    fill_in 'user[password]', with: '123456'
-    fill_in 'user[password_confirmation]', with: '123456'
-    click_on 'commit'
-    assert_text 'Уже есть'
+  test 'test_no_registration' do
+   visit signup_url
+   fill_in 'user[first_name]', with: 'Nina'
+   fill_in 'user[last_name]', with: 'Ninova'
+   fill_in 'user[email]', with: 'ninaaaaaaaaaa'
+   fill_in 'user[password]', with: '123456'
+   fill_in 'user[password_confirmation]', with: '123456'
+   click_on 'commit'
+   assert_text 'Уже есть'
   end
 
-   test 'test_to_index' do
-    visit root_url
-    find('#reg').click
-    assert_text 'Уже есть'
-     visit root_url
-    find('#entre').click
-    assert_text 'Новый пользователь? Зарегестрируйся!'
+  test 'test_to_index' do
+   visit root_url
+   find('#reg').click
+   assert_text 'Уже есть'
+   visit root_url
+   find('#entre').click
+   assert_text 'Новый пользователь? Зарегестрируйся!'
   end
 end

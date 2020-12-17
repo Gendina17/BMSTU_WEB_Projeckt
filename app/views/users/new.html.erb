@@ -1,3 +1,28 @@
-<%= render 'form', user: @user %>
-
+<div  class ="sign_form">
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%=t 'from_being_saved'%> </h2>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= form_with(model: @user, local: true, :class => 'form-signin' ) do |form| %>
+      <h1 class="vb"> <img id="logo" src="/assets/сердце3.svg" /><a href="../">VBomonke</a></h1><br/>
+      <%= form.email_field :email, :class => 'form-control inp',:placeholder => t('email')%>
+      <%= form.password_field :password, :class => 'form-control inp psr',:placeholder => t('pass')%>
+      <%= form.password_field :password_confirmation, :class => 'form-control inp psr',:placeholder => t('pass_rep')%>
+      <%= form.text_field :first_name, :class => 'form-control inp em',:placeholder => t('sername')%>
+      <%= form.text_field :last_name, :class => 'form-control inp' ,:placeholder => t('name')%>
+      <div class="actions">
+        <%= form.submit t('reg_but'), :class => 'btn btn-outline-secondary'   %>
+      </div>
+      <span class="link_to_sign"><%=t 'Already_has_account?'%></span>
+      <%= link_to t('entry_but'),  signin_path %>
+    <% end %>
+  </div>
+</div>
 

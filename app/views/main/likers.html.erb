@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
         </div >
         <div id="but">
-          <a href= "../main/my_profile"> <button type="button" class="btn btn-outline-secondary">Мой профиль: <%= @_current.last_name %></button></a>
+          <a href= "../main/my_profile"> <button type="button" class="btn btn-outline-secondary"><%=t 'my_profile'%><%= @_current.last_name %></button></a>
         </div>
       </nav>
     </header>

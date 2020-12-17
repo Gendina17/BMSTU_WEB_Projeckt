@@ -11,28 +11,28 @@
   <% end %>
   <%=  form_with(model:@_current,  local: true, url: main_create_path, :class => 'form_ed') do |form|%>
   <h1 class="vb"> <img id="logo" src="/assets/сердце3.svg" />VBomonke</h1><br/>
-  <%= form.text_field :first_name, :class => 'form-control inp em',:placeholder => 'Фамилия' %>
-  <%= form.text_field :last_name, :class => 'form-control inp' ,:placeholder => 'Имя' %>
-  <%= form.text_field :group, :class => 'form-control inp' ,:placeholder => 'Группа (формат: ИУ6-32Б) ' %>
+  <%= form.text_field :first_name, :class => 'form-control inp em',:placeholder => t('sername') %>
+  <%= form.text_field :last_name, :class => 'form-control inp' ,:placeholder => t('name') %>
+  <%= form.text_field :group, :class => 'form-control inp' ,:placeholder => t('group_plhldr') %>
   <%= form.date_field :born, :class => 'form-control inp' %>
-  <%= form.text_field :status, :class => 'form-control inp' ,:placeholder => 'Статус' %>
-  <%= form.email_field :email, :class => 'form-control inp',:placeholder => 'Почта'%>
-  <%= form.text_field :love_status, :class => 'form-control inp' ,:placeholder => 'Личный статус:' %>
-  <%= form.text_field :city, :class => 'form-control inp' ,:placeholder => 'Страна' %>
-  <%= form.text_field :town, :class => 'form-control inp' ,:placeholder => 'Населенный пункт' %>
-  <%= form.text_field :contact, :class => 'form-control inp' ,:placeholder => 'Ссылка на вк' %>
-  <%= form.text_area :info, :class => 'form-control inp' ,:placeholder => 'Расскажите немного о себе...' %>
-  <%= form.password_field :password, :class => 'form-control inp psr',:placeholder => 'Пароль'%>
+  <%= form.text_field :status, :class => 'form-control inp' ,:placeholder => t('prof_status') %>
+  <%= form.email_field :email, :class => 'form-control inp',:placeholder => t('email')%>
+  <%= form.text_field :love_status, :class => 'form-control inp' ,:placeholder => t('status') %>
+  <%= form.text_field :city, :class => 'form-control inp' ,:placeholder => t('country') %>
+  <%= form.text_field :town, :class => 'form-control inp' ,:placeholder => t('point') %>
+  <%= form.text_field :contact, :class => 'form-control inp' ,:placeholder => t('vk')  %>
+  <%= form.text_area :info, :class => 'form-control inp' ,:placeholder => t('info')  %>
+  <%= form.password_field :password, :class => 'form-control inp psr',:placeholder => t('pass')%>
   <% if @_current.avatar.file.nil?%>
   <% else %>
-  <%= image_tag @_current.avatar.url, :class => "question-img avatarka", :alt => "Аватар"%>
+  <%= image_tag @_current.avatar.url, :class => "question-img avatarka", :alt => t('avatar') %>
   <% end %>
   <%= form.file_field :avatar, :class => 'form-control inp'  %>
-  <%= form.submit 'Редактировать', :class => 'btn btn-outline-secondary'   %>
-  <span class="link_to_sign">Передумали?</span>
-  <%= link_to "Вернуться", main_my_profile_path %>
+  <%= form.submit t('edit_link') , :class => 'btn btn-outline-secondary'   %>
+  <span class="link_to_sign"><%=t 'think' %></span>
+  <%= link_to t('back_link'), main_my_profile_path %>
   <br><br>
-  <%= link_to 'Удалить свой аккаунт', main_destroy_path,
-  data: { confirm: 'Вы уверены, что хотите удалить аккаунт?' }, :class => "link_to" %>
+  <%= link_to  t('delete'), main_destroy_path,
+  data: { confirm: t('delete_confirm') }, :class => "link_to" %>
   <% end %>
 </div>

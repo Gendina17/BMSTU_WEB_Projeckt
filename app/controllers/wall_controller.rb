@@ -6,7 +6,8 @@ class WallController < ApplicationController
   def records
     @id = params[:id].to_i
     if @id.to_s =~ /\A[0-9]+\Z/
-      @records = Wall.where(author:@id).order(:id).reverse_order
+      @records = Wall.where(author: @id).order(:id).reverse_order
+      @author = User.find_by_id(@id)
     else
       render :error
     end
@@ -53,6 +54,7 @@ class WallController < ApplicationController
     else redirect_to edit_record_path
     end
   end
+
   private
 
   def set_user

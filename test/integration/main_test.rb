@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class MainTest < ActionDispatch::IntegrationTest
-	setup do
+	 setup do
     post users_path, params: { user: { email: 'da@afff.afff', password: '111111', last_name:'kkk', first_name:'kkk' } }
     post session_index_url, params: { session: { email: 'da@afff.afff', password: '111111' } }
   end
-  
-test 'should do to profile' do
+
+  test 'should do to profile' do
     get '/profile/19'
     assert_response :success
   end
@@ -24,29 +26,32 @@ test 'should do to profile' do
     assert_response :success
   end
 
-   test 'should to redirect to signin after destroy' do
+  test 'should to redirect to signin after destroy' do
     get '/main/destroy'
     assert_response :redirect
     assert_redirected_to root_url
   end
 
 
-    test 'should do to faculty' do
-    get "/faculty/IU6"
+  test 'should do to faculty' do
+    get '/faculty/IU6'
     assert_response :success
   end
 
   test 'should do to love' do
-    get "/love/"
+    get '/love/'
     assert_response :success
   end
 
   test 'should do to group' do
-    get "/search/IU6-32B"
+    get '/search/IU6-32B'
     assert_response :success
   end
 
-  
-
-
+  test 'should do records' do
+    user1 = User.new(email: 'test@mail.ru', password: '123456', first_name: 'Милохин', last_name: 'Олег' )
+    user1.save
+    get "/records/#{user1.id}"
+    assert_response :success
+  end
 end

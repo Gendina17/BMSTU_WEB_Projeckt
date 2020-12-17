@@ -7,14 +7,14 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
         </div >
         <div id="but">
-          <a href= "../main/my_profile"> <button type="button" class="btn btn-outline-secondary">Мой профиль: <%= @_current.last_name %></button></a>
+          <a href= "../main/my_profile"> <button type="button" class="btn btn-outline-secondary"><%=t 'my_profile'%><%= @_current.last_name %></button></a>
         </div>
       </nav>
     </header>
     <% if @persons.length==0 %>
-    <span id="new">Из направления <%= @faculty %> пока не зарегестрирован ни один польззователь </span>
+    <span id="new"><%=t 'begin_mess'%><%= @faculty %>  <%=t 'end_mass'%></span>
     <% else %>
-    <span id="new">Направление: <%= @faculty %></span>
+    <span id="new"><%=t 'direction'%> <%= @faculty %></span>
     <% end %>
     <%= render 'main/ list' %>
   </div>

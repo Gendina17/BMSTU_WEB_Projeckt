@@ -24,5 +24,4 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       post users_url, params: { user: { email: 'nina', password: '123456' } }
     end
   end
-
 end

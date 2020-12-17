@@ -5,8 +5,8 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
     </div >
     <div id="but">
-      <a href="../records/<%= @_current.id %>"><button type="button" class="btn btn-outline-secondary">Стена</button></a>
-      <a href="../signout"><button type="button" class="btn btn-outline-secondary">Выход</button></a>
+      <a href="../records/<%= @_current.id %>"><button type="button" class="btn btn-outline-secondary"><%=t 'wall'%></button></a>
+      <a href="../signout"><button type="button" class="btn btn-outline-secondary"><%=t 'output'%></button></a>
     </div>
   </nav>
 </header>
@@ -45,38 +45,38 @@
                 <tbody>
                   <% key=0 %>
                   <% if !@_current.group.nil? && !@_current.group.empty? %>
-                  <tr><td class="active">Группа</td><td><a href="/search/<%= @_current.group %>"> <%= @_current.group %></a> </td></tr>
+                  <tr><td class="active"><%=t 'group'%></td><td><a href="/search/<%= @_current.group %>"> <%= @_current.group %></a> </td></tr>
                   <%key+=1 %>
                   <% end %>
                   <% if  !@_current.city.nil? && !@_current.city.empty? %>
-                  <tr><td class="active">Страна:</td><td><%= @_current.city %> </td></tr>
+                  <tr><td class="active"><%=t 'country'%>:</td><td><%= @_current.city %> </td></tr>
                   <%key+=1 %>
                   <% end %>
                   <% if  !@_current.town.nil? && !@_current.town.empty? %>
-                  <tr><td class="active">Родной город:</td><td><%= @_current.town %> </td></tr>
+                  <tr><td class="active"><%=t 'town'%></td><td><%= @_current.town %> </td></tr>
                   <%key+=1 %>
                   <% end %>
                   <% if  !@_current.born.to_s.nil? && !@_current.born.to_s.empty? %>
-                  <tr><td class="active">Дата рождения:</td><td><%= @_current.born %></td></tr>
+                  <tr><td class="active"><%=t 'born'%></td><td><%= @_current.born %></td></tr>
                   <%key+=1 %>
                   <% end %>
                   <% if !@_current.love_status.nil? && !@_current.love_status.empty? %>
-                  <tr><td class="active">Личный статус:</td><td><%= @_current.love_status %></td></tr>
+                  <tr><td class="active"><%=t 'status'%>:</td><td><%= @_current.love_status %></td></tr>
                   <%key+=1 %>
                   <% end %>
                   <% if  !@_current.contact.nil? && !@_current.contact.empty? %>
-                  <tr><td class="active">Контакты:</td><td><a href="<%= @_current.contact %>" target="_blank">ссылка</a> </td></tr>
+                  <tr><td class="active"><%=t 'contact'%></td><td><a href="<%= @_current.contact %>" target="_blank"><%=t 'ssil'%></a> </td></tr>
                   <%key+=1 %>
                   <% end %>
                   <% if  !@_current.info.nil? && !@_current.info.empty? %>
-                  <tr><td class="active">О себе:</td><td><%= @_current.info %> </td></tr>
+                  <tr><td class="active"><%=t 'about'%></td><td><%= @_current.info %> </td></tr>
                   <%key+=1 %>
                   <% end %>
                 </tbody>
               </table>
               <% if key<7 %>
               <br><br>
-              <h6 class="zam">Чем подробнее вы заполните профиль, тем быстрее найдете друзей</h6>
+              <h6 class="zam"><%=t 'zam'%></h6>
               <% end %>
             </div>
           </div>
@@ -85,8 +85,8 @@
     </div>
   </div>
   <div class="prof_but">
-    <a href="../main/edit"> <button class="btn btn-outline-secondary" >Редактировать профиль</button></a>
-    <a href="../love"><button class="btn btn-outline-secondary" >Понравившиеся пользователи</button></a>
+    <a href="../main/edit"> <button class="btn btn-outline-secondary" ><%=t 'edit'%></button></a>
+    <a href="../love"><button class="btn btn-outline-secondary" ><%=t 'love_users'%></button></a>
   </div>
 </div>
 </div>
