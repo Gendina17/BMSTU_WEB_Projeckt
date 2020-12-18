@@ -3,11 +3,11 @@
     <header class="hea">
       <nav class="navbar navbar-expand-md fixed-top">
         <img id="logo" src="/assets/сердце3.svg">
-        <a class="navbar-brand text-dark site_name" href="../">VBomonke</a>
+        <a class="navbar-brand text-dark site_name" href="../<%= I18n.locale %>/">VBomonke</a>
         <div class="collapse navbar-collapse" id="navbarCollapse">
         </div >
         <div id="but">
-          <a href= "../main/my_profile"> <button type="button" class="btn btn-outline-secondary"><%=t 'back'%></button></a>
+          <a href= "../<%= I18n.locale %>/main/my_profile"> <button type="button" class="btn btn-outline-secondary"><%=t 'back'%></button></a>
         </div>
       </nav>
     </header>
@@ -28,20 +28,20 @@
           <% end %>
         </div>
         <div class="col-9 a">
-          <div class="question-title a"><a class="text-dark" href="../profile/<%= person.id %>"><%= person.first_name %> <%= person.last_name %>  </a>
+          <div class="question-title a"><a class="text-dark" href="../<%= I18n.locale %>/profile/<%= person.id %>"><%= person.first_name %> <%= person.last_name %>  </a>
             <% if  UserCommunication.find_by_like_and_liker(@_current.id, person.id) %>
             <%= image_tag(image_path('звезда2.png'), class: "mini_star", title: t('mutually'))%>
             <% end %>
           </div>
           <span class="question-text a" ><%= person.status %> </span>
           <br/><br>
-          <a href="/search/<%= person.group %>"> <span class="question-text a"><%= person.group %> </span> </a>
+          <a href="/<%= I18n.locale %>/search/<%= person.group %>"> <span class="question-text a"><%= person.group %> </span> </a>
           <div class="row">
             <div class="col-5 a">
             </div>
             <div class="nrav">
               <%= link_to  image_tag(image_path('разбито1.jpg'), class: "mini_del"), main_delete_card_path(params: { kto:@_current.id, kogo:person.id }), remote: true, id: "dis_#{person.id}", data: { confirm: t('confirm') } %>
-              <a href="../likers/<%= person.id %>"><span id="like_<%= person.id %>" class="number_like"><%= UserCommunication.where(like: person.id).count %></span></a>
+              <a href="../<%= I18n.locale %>/likers/<%= person.id %>"><span id="like_<%= person.id %>" class="number_like"><%= UserCommunication.where(like: person.id).count %></span></a>
             </div>
           </div>
         </div>

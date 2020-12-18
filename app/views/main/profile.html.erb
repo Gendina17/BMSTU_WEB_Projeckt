@@ -1,7 +1,7 @@
 <header class="hea">
   <nav class="navbar navbar-expand-md fixed-top">
     <img id="logo" src="/assets/сердце3.svg">
-    <a class="navbar-brand text-dark site_name" href="../../">VBomonke</a>
+    <a class="navbar-brand text-dark site_name" href="../../<%= I18n.locale %>/">VBomonke</a>
     <div class="collapse navbar-collapse" id="navbarCollapse">
     </div >
     <div id="but">
@@ -44,7 +44,7 @@
                 <tbody>
                   <% key=0 %>
                   <% if !@man.group.nil? && !@man.group.empty? %>
-                  <tr><td class="active"><%=t 'group'%></td><td><a href="/search/<%= @man.group %>"> <%= @man.group %></a> </td></tr>
+                  <tr><td class="active"><%=t 'group'%></td><td><a href="/<%= I18n.locale %>/search/<%= @man.group %>"> <%= @man.group %></a> </td></tr>
                   <%key+=1 %>
                   <% end %>
                   <% if !@man.city.nil? && !@man.city.empty? %>
@@ -90,6 +90,6 @@
   <%= link_to image_tag(image_path('сердце3.svg'), class: "mini"), main_add_path(params: { kto:@_current.id, kogo:@man.id }), remote: true, id: "add_#{@man.id}"%>
   <%= link_to  image_tag(image_path('разбито1.jpg'), class: "mini2"), main_delete_path(params: { kto:@_current.id, kogo:@man.id }), remote: true,  id: "dis_#{@man.id}", class: "mini_a"%>
   <% end %>
-  <a href="../likers/<%= @man.id %>"><span id="like_<%= @man.id %>" class="number_like"><%= UserCommunication.where(like: @man.id).count %></span></a>
+  <a href="../<%= I18n.locale %>/likers/<%= @man.id %>"><span id="like_<%= @man.id %>" class="number_like"><%= UserCommunication.where(like: @man.id).count %></span></a>
 </div>
 </div>

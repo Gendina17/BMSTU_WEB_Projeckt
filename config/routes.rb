@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
   get 'session/new'
   get 'session/create'
   get 'session/destroy'
@@ -39,4 +40,5 @@ Rails.application.routes.draw do
   resources :session, only: %i[new create destroy]
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+end
 end

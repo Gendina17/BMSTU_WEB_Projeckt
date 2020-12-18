@@ -20,7 +20,7 @@
     <div class="form-control inp" > <%= form.select :status, [t('tag_one'), t('tag_two'), t('edit_link')] , :class => 'form-control inp' %> </div>
     <%= form.submit t('edit_link'), :class => 'btn btn-outline-secondary'   %>
     <span class="link_to_sign"><%=t 'rethink'%></span>
-    <%= link_to t('back_rec'), "/records/#{@_current.id}" %>
+    <%= link_to t('back_rec'), "/<%= I18n.locale %>/records/#{@_current.id}" %>
     <br><br>
   <% end %>
 </div>

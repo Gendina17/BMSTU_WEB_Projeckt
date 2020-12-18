@@ -23,7 +23,7 @@ class WallController < ApplicationController
     @new_record = Wall.new(record_params)
     @new_record.author = @_current.id
     if @new_record.save
-      redirect_to "/records/#{@_current.id}"
+      redirect_to "/#{I18n.locale}/records/#{@_current.id}"
     else
       render :add_record
 
@@ -47,7 +47,7 @@ class WallController < ApplicationController
   def update
     if !request.get?
       if Wall.find(params[:id]).update(record_params)
-        redirect_to "/records/#{@_current.id}"
+        redirect_to "/#{I18n.locale}/records/#{@_current.id}"
       else
         render :edit_record
       end

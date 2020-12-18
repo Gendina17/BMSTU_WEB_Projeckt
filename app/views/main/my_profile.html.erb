@@ -1,7 +1,7 @@
 <header class="hea">
   <nav class="navbar navbar-expand-md fixed-top">
     <img id="logo" src="/assets/сердце3.svg">
-    <a class="navbar-brand text-dark site_name" href="../../">VBomonke</a>
+    <a class="navbar-brand text-dark site_name" href="../../<%= I18n.locale%>/">VBomonke</a>
     <div class="collapse navbar-collapse" id="navbarCollapse">
     </div >
     <div id="but">
@@ -45,7 +45,7 @@
                 <tbody>
                   <% key=0 %>
                   <% if !@_current.group.nil? && !@_current.group.empty? %>
-                  <tr><td class="active"><%=t 'group'%></td><td><a href="/search/<%= @_current.group %>"> <%= @_current.group %></a> </td></tr>
+                  <tr><td class="active"><%=t 'group'%></td><td><a href="/<%= I18n.locale %>/search/<%= @_current.group %>"> <%= @_current.group %></a> </td></tr>
                   <%key+=1 %>
                   <% end %>
                   <% if  !@_current.city.nil? && !@_current.city.empty? %>
@@ -86,7 +86,7 @@
   </div>
   <div class="prof_but">
     <a href="../main/edit"> <button class="btn btn-outline-secondary" ><%=t 'edit'%></button></a>
-    <a href="../love"><button class="btn btn-outline-secondary" ><%=t 'love_users'%></button></a>
+    <a href="../<%=I18n.locale%>/love"><button class="btn btn-outline-secondary" ><%=t 'love_users'%></button></a>
   </div>
 </div>
 </div>

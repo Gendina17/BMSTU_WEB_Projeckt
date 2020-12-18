@@ -20,7 +20,7 @@
         <%= form.submit t('creat'), :class => 'btn btn-outline-secondary'   %>
       </div>
       <span class="link_to_sign"><%=t 'rethink'%></span>
-      <%= link_to t('back_rec'),  "/records/#{@_current.id}" %>
+      <%= link_to t('back_rec'),  "/#{I18n.locale}/records/#{@_current.id}" %>
     <% end %>
   </div>
 </div>

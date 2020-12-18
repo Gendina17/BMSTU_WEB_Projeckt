@@ -11,7 +11,7 @@
   <% end %>
   <div>
     <%= form_with(model: @user, local: true, :class => 'form-signin' ) do |form| %>
-      <h1 class="vb"> <img id="logo" src="/assets/сердце3.svg" /><a href="../">VBomonke</a></h1><br/>
+      <h1 class="vb"> <img id="logo" src="/assets/сердце3.svg" /><a href="../<%= I18n.locale %>/">VBomonke</a></h1><br/>
       <%= form.email_field :email, :class => 'form-control inp',:placeholder => t('email')%>
       <%= form.password_field :password, :class => 'form-control inp psr',:placeholder => t('pass')%>
       <%= form.password_field :password_confirmation, :class => 'form-control inp psr',:placeholder => t('pass_rep')%>

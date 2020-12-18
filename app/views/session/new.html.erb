@@ -1,6 +1,6 @@
 <div  class ="sign_form">
   <%= form_for(:session, :url => session_index_path,:html => {:class => 'form-sign'} ) do |f| %>
-    <h1 class="vb"> <img id="logo" src="/assets/сердце3.svg" /><a href="../">VBomonke</a></h1>
+    <h1 class="vb"> <img id="logo" src="/assets/сердце3.svg" /><a href="../<%= I18n.locale %>/">VBomonke</a></h1>
     <br/>
   <%= @title%>
   <p id="alert"><%= alert %></p>

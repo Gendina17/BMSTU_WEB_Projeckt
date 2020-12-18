@@ -3,12 +3,12 @@
     <header class="hea">
       <nav class="navbar navbar-expand-md fixed-top">
         <img id="logo" src="/assets/сердце3.svg">
-        <a class="navbar-brand text-dark site_name" href="../">VBomonke</a>
+        <a class="navbar-brand text-dark site_name" href="../<%= I18n.locale %>/">VBomonke</a>
         <div class="collapse navbar-collapse" id="navbarCollapse">
         </div >
         <div id="but">
           <a href= "../faculty/<%= @group.split('-')[0] %>"> <button type="button" class="btn btn-outline-secondary"><%=t 'direction'%><%= @group.split('-')[0] %></button></a>
-          <a href= "../main/my_profile"> <button type="button" class="btn btn-outline-secondary"><%=t 'my_profile'%><%= @_current.last_name %></button></a>
+          <a href= "../<%= I18n.locale %>/main/my_profile"> <button type="button" class="btn btn-outline-secondary"><%=t 'my_profile'%><%= @_current.last_name %></button></a>
         </div>
       </nav>
     </header>
