@@ -8,7 +8,7 @@ class MainsTest < ApplicationSystemTestCase
     visit signin_url
     fill_in 'session[email]', with: 'nina@mail.com'
     fill_in 'session[password]', with: '123456'
-    click_on 'commit'
+    click 'commit'
   end
 
   test 'test_to_index_with_autorization' do

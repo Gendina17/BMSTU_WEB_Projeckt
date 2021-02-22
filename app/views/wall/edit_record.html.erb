@@ -17,10 +17,10 @@
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
     <%= form.text_field :title, :class => 'form-control inp',:placeholder => t('title_rec')%>
     <%= form.text_area :body, :class => 'form-control inp' ,:placeholder => t('thinks') %>
-    <div class="form-control inp" > <%= form.select :status, [t('tag_one'), t('tag_two'), t('edit_link')] , :class => 'form-control inp' %> </div>
+    <div class="form-control inp" > <%= form.select :status, [t('tag_one'), t('tag_two'), t('tag_tree')] , :class => 'form-control inp' %> </div>
     <%= form.submit t('edit_link'), :class => 'btn btn-outline-secondary'   %>
     <span class="link_to_sign"><%=t 'rethink'%></span>
-    <%= link_to t('back_rec'), "/<%= I18n.locale %>/records/#{@_current.id}" %>
+    <%= link_to t('back_rec'), "/#{I18n.locale}/records/#{@_current.id}" %>
     <br><br>
   <% end %>
 </div>

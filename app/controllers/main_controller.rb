@@ -3,7 +3,7 @@
 # All logic
 class MainController < ApplicationController
   before_action :set_user, only: %i[index my_profile edit create destroy
-                                    love_users search likers profile search faculty add]
+                                    love_users search likers profile search faculty add delete_card delete]
   def index
     all_persons = User.all.order(:id).reverse_order
     if @_current

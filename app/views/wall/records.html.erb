@@ -9,7 +9,10 @@
         </div >
         <div id="but">
           <% if @_current.id == @id %>
-          <a href="../add_record"><button type="button" id="exit" class="btn btn-outline-secondary"><%=t 'create_rec'%></button></a>
+            <a href= "../<%= I18n.locale %>/main/my_profile"> <button type="button" class="btn btn-outline-secondary"><%=t 'back'%></button></a>
+            <a href="../add_record"><button type="button" id="exit" class="btn btn-outline-secondary"><%=t 'create_rec'%></button></a>
+            <% else %>
+            <a href= "../profile/<%= @id %>"> <button type="button" class="btn btn-outline-secondary"><%=t 'back'%></button></a>
             <% end %>
         </div>
       </nav>
@@ -17,7 +20,11 @@
     <% if @records.length==0 %>
       <span id="new"><%=t 'new_mess'%></span>
     <% else %>
+      <% if @_current.id == @id %>
+        <span id="new_2"><%=t 'your_wall'%> , <%= @author.first_name %> <%= @author.last_name %></span>
+      <% else %>
       <span id="new"><%=t 'new_mess_true'%> <%= @author.first_name %> <%= @author.last_name %></span>
+      <% end %>
     <% end %>
     <% @records.each do |record| %>
       <div id="<%= record.id %>" class="col-9 ">
@@ -37,7 +44,7 @@
                 <% if @_current.id == @id %>
                   <div class="nrav">
                     <%= link_to image_tag(image_path('настройки.jpg'), class: "mini"), edit_record_path(params: { id: record.id }), class: "edit"%>
-                    <%= link_to  image_tag(image_path('корзина.jpg'), class: "mini2"), wall_delete_record_path(params: { id: record.id }), remote: true,  id: "dis_#{record.id}"%>
+                    <%= link_to  image_tag(image_path('корзина.jpg'), class: "mini2"), wall_delete_record_path(params: { id: record.id }), remote: true,  id: "dis_#{record.id}", data: { confirm: t('confirm_wall') } %>
                   </div>
                 <% end %>
               </div>

@@ -148,6 +148,8 @@ ru:
         info: "По информации о себе"
         Password_confirmation: "Повтор пароля"
         password_confirmation: "Повтор пароля"
+        Contact: "Контакт"
+        contact: "Контакт"
     errors:
       models:
         # change the error message for eye color not included in the list
@@ -305,7 +307,7 @@ ru:
   my_profile: "Мой профиль: "
   entry: "Вход"
   registration: "Регистрация"
-  no_login: "'Неверный логин или пароль'"
+  no_login: "грНеверный логин или пароль"
   entry_but: "Войти"
   reg_but: "Зарегестрироваться"
   email: "Почта"
@@ -357,4 +359,6 @@ ru:
   back_rec: "Вернуться"
   creat: "Создать"
   new_rec: "Новая запись"
+  confirm_wall: "Вы уверены, что хотите удалить запись??"
+  your_wall: "Ваша стена"
 
