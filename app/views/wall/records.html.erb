@@ -9,7 +9,7 @@
         </div >
         <div id="but">
           <% if @_current.id == @id %>
-            <a href= "../<%= I18n.locale %>/main/my_profile"> <button type="button" class="btn btn-outline-secondary"><%=t 'back'%></button></a>
+            <a href= "../../<%= I18n.locale %>/main/my_profile"> <button type="button" class="btn btn-outline-secondary"><%=t 'back'%></button></a>
             <a href="../add_record"><button type="button" id="exit" class="btn btn-outline-secondary"><%=t 'create_rec'%></button></a>
             <% else %>
             <a href= "../profile/<%= @id %>"> <button type="button" class="btn btn-outline-secondary"><%=t 'back'%></button></a>

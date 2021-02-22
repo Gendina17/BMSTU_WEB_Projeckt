@@ -6,22 +6,31 @@
         <a class="navbar-brand text-dark site_name" href="#">VBomonke</a>
         <div class="collapse navbar-collapse" id="navbarCollapse">
         </div >
-        <div class="language">
-          <span class="nav-item<%= " active" if I18n.locale == :ru %>">
-            <%= link_to "Рус", { locale: :ru },class: "nav-link" %>
-          </span>
-          <span class="nav-item<%= " active" if I18n.locale == :en %>">
-            <%= link_to "En", { locale: :en },class: "nav-link" %>
-          </span>
-        </div>
         <div id="but">
           <% if @_current %>
           <a href="../signout"><button type="button" id="exit" class="btn btn-outline-secondary"><%=t 'output'%></button></a>
-          <a href= "../main/my_profile"> <button type="button" id="prof" class="btn btn-outline-secondary"><%=t 'my_profile'%> <%= @_current.last_name %></button></a>
+          <a href= "/<%= I18n.locale %>/main/my_profile"> <button type="button" id="prof" class="btn btn-outline-secondary"><%=t 'my_profile'%> <%= @_current.last_name %></button></a>
           <%else %>
           <a href="../signin"><button type="button" id="entre" class="btn btn-outline-secondary"  ><%=t 'entry'%></button></a>
           <a href="../signup"> <button type="button" id="reg" class="btn btn-outline-secondary"><%=t 'registration'%></button></a>
           <% end %>
+        </div>
+        <div class="language">
+          <% if params[:locale] == "en" %>
+          <span>
+              <%= link_to "Рус", { locale: :ru },class: "nav-link" %>
+          </span>
+            <span>
+            <%= link_to "En", { locale: :en },class: "nav-link",:style=>'color: red;' %>
+          </span>
+            <% else %>
+            <span>
+              <%= link_to "Рус", { locale: :ru },class: "nav-link",:style=>'color: red;' %>
+          </span>
+            <span >
+            <%= link_to "En", { locale: :en },class: "nav-link"%>
+          </span>
+              <% end %>
         </div>
       </nav>
     </header>
@@ -42,7 +51,7 @@
           <% end %>
         </div>
         <div class="col-9 a">
-          <div class="question-title a"><a class="text-dark" href="../profile/<%= person.id %>"><%= person.first_name %> <%= person.last_name %>  </a></div>
+          <div class="question-title a"><a class="text-dark" href="../<%= I18n.locale %>/profile/<%= person.id %>"><%= person.first_name %> <%= person.last_name %>  </a></div>
           <span class="question-text a" ><%= person.status %> </span>
           <br/><br>
           <a href="/<%= I18n.locale %>/search/<%= person.group %>"> <span class="question-text a"><%= person.group %> </span> </a>
@@ -53,7 +62,7 @@
             <div class="nrav">
               <%= link_to image_tag(image_path('сердце3.svg'), class: "mini"), main_add_path(params: { kogo:person.id }), remote: true, id: "add_#{person.id}"%>
               <%= link_to  image_tag(image_path('разбито1.jpg'), class: "mini2"), main_delete_path(params: {  kogo:person.id }), remote: true,  id: "dis_#{person.id}", class: "mini_a"%>
-              <a href="../likers/<%= person.id %>"><span id="like_<%= person.id %>" class="number_like"><%= UserCommunication.where(like: person.id).count %></span></a>
+              <a href="../<%= I18n.locale %>/likers/<%= person.id %>"><span id="like_<%= person.id %>" class="number_like"><%= UserCommunication.where(like: person.id).count %></span></a>
             </div>
             <% end %>
           </div>

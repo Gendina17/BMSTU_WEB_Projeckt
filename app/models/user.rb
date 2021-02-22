@@ -13,8 +13,8 @@ class User < ApplicationRecord
   validates :city,  length: { maximum: 30 }
   validates :town,  length: { maximum: 30 }
   validates :love_status, length: { maximum: 30 }
-  validates_format_of :contact, with: /(^\s*$)|(https:\/\/vk.com\/)/, :message => 'должен быть ссылкой на вк'
-  validates_format_of :group, with: /(^\s*$)|(\A((ИУ)|(СМ)|(МТ)|(РК)|(СГН)|(БМТ)|(ИБМ)|(АК)|(ИСОТ)|(ОЭ)|(РКТ)|(РТ)|(Э)|(ЮР)|(ФН)|(РЛ))((1[0-2])|[1-9])-((1[0-2])|[1-9])[1-9](А|Б|М)?\Z)/, :message => 'должна соответствовать указанному формату'
+  validates_format_of :contact, with: /(^\s*$)|(https:\/\/vk.com\/)/, message: I18n.t(:contact_message)
+  validates_format_of :group, with: /(^\s*$)|(\A((ИУ)|(IU)|(СМ)|(SM)|(МТ)|(MT)|(РК)|(RK)|(СГН)|(SGN)|(БМТ)|(BMT)|(ИБМ)|(IBM)|(АК)|(AK)|(ИСОТ)|(ISOT)|(ОЭ)|(OE)|(РКТ)|(RKT)|(РТ)|(RT)|(Э)|(E)|(ЮР)|(YR)|(ФН)|(FN)|(РЛ)|(RL))((1[0-2])|[1-9])-((1[0-2])|[1-9])[1-9](А|Б|М|A|B|M)?\Z)/, message: I18n.t(:group_message)
   mount_uploader :avatar, AvatarUploader
 
 
